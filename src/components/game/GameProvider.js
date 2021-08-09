@@ -25,12 +25,12 @@ export const GameProvider = (props) => {
                 "Authorization": `Token ${localStorage.getItem("lu_token")}`
             },
             body: JSON.stringify(game)
-         })
+        })
             .then(getGames)
     }
     
     const getGameCategories = () => {
-        return fetch("http://localhost:8000/gameCategories", {
+        return fetch("http://localhost:8000/games", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("lu_token")}`
             }

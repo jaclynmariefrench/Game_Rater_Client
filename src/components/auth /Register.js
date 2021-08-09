@@ -28,8 +28,7 @@ export const Register = (props) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Access-Control-Allow-Origin": "*"
+                    "Accept": "application/json"
                 },
                 body: JSON.stringify(newUser)
             })

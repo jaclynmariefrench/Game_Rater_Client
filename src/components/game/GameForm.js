@@ -14,7 +14,7 @@ export const GameForm = () => {
         designer: "",
         year_released: 0,
         age_recommendation: 0,
-        game_category: 1
+        categories: 0
     })
 
 
@@ -76,12 +76,12 @@ export const GameForm = () => {
                     ></input>
                 </div> 
                 <div className="form-group">
-                    <label htmlFor="game_category">Game Category:</label>
-                    <select value={currentGame.game_category} name="game_category" id="game_category" className="form-control" onChange={changeGameState}>
+                    <label htmlFor="categories">Game Category:</label>
+                    <select value={currentGame.categories} name="categories" id="categories" className="form-control" onChange={changeGameState}>
                         <option value="0">Select the Game Type</option>
                         {gameCategories.map(gc=>(
                             <option key={gc.id} value={gc.id}>
-                                {gc.label}
+                                {gc.id}
                             </option>
                         ))}
                     </select>
@@ -100,7 +100,7 @@ export const GameForm = () => {
                         title: currentGame.title,
                         number_of_players: parseInt(currentGame.number_of_players),
                         age_recommendation: parseInt(currentGame.age_recommendation),
-                        game_category: parseInt(currentGame.game_category),
+                        categories: parseInt(currentGame.categories),
                         year_released: parseInt(currentGame.year_released),
                         time_to_play: parseInt(currentGame.time_to_play)
                     }

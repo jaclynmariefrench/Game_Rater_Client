@@ -12,7 +12,7 @@ export const ApplicationViews = () => {
             lineHeight: "1.75rem"
         }}>
             <GameProvider>
-                <Route path="/games">
+                <Route exact path="/games">
                     <GameList/>
                 </Route>
                 <Route exact path="/games/new">
