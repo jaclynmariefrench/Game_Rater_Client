@@ -81,7 +81,7 @@ export const GameForm = () => {
                         <option value="0">Select the Game Type</option>
                         {gameCategories.map(gc=>(
                             <option key={gc.id} value={gc.id}>
-                                {gc.id}
+                                {gc.label}
                             </option>
                         ))}
                     </select>
