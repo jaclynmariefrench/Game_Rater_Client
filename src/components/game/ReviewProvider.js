@@ -37,11 +37,21 @@ export const ReviewProvider = (props) => {
             }
         })
         .then(res => res.json())
+
       }
     
+    const getReviewByGameId = (game_id) => {
+        return fetch(`http://localhost:8000/gamereviews?game=${game_id}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            }
+        })
+        .then(res => res.json())
+        .then(setReviews)
+    }
 
     return (
-        <ReviewContext.Provider value={{ reviews, getReviews, createReview, getReviewById }} >
+        <ReviewContext.Provider value={{ reviews, getReviews, createReview, getReviewById, setReviews, getReviewByGameId }} >
             { props.children }
         </ReviewContext.Provider>
     )
