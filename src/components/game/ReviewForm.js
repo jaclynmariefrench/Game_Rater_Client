@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { ReviewContext } from "./ReviewProvider"
+import { GameContext } from "./GameProvider"
 
 
 export const ReviewForm = () => {
     const history = useHistory()
     const { createReview } = useContext(ReviewContext)
+    const { getGameById } = useContext(GameContext)
     const [ game, setGame ] = useState( {} )
 
     const {game_id} = useParams()
@@ -17,8 +19,7 @@ export const ReviewForm = () => {
     }, [])
 
     const [currentReview, setCurrentReview] = useState({
-        player: localStorage.getItem("lu_token"),
-        game: currentReview.game,
+        game: game,
         review: ""
     })
 
@@ -35,8 +36,8 @@ export const ReviewForm = () => {
             <h2 className="ReviewForm__name">Register New Review</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">What do you think of this {game.title}: </label>
-                    <input type="text" name="review" required autoFocus className="form-control"
+                    <label htmlFor="title">What do you think of {game.title}: </label>
+                    <input type="textarea" name="review" required autoFocus className="form-control"
                         value={currentReview.review}
                         onChange={changeReviewState}
                     />
@@ -50,7 +51,8 @@ export const ReviewForm = () => {
                     evt.preventDefault()
 
                     const review = {
-                        review: currentReview.review
+                        review: currentReview.review,
+                        game: game.id
                     }
 
                     // Send POST request to your API

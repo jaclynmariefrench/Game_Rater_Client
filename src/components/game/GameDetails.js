@@ -27,7 +27,7 @@ export const GameDetail = () => {
         <div className="game__age_recommendation">Age Recommendation: { game.age_recommendation }</div>
         <button className="btn btn-2 btn-sep icon-create"
         onClick={() => {
-          history.push("/games/{game}/review");
+          history.push(`/games/${game_id}/review`);
         }}
       >
         Review

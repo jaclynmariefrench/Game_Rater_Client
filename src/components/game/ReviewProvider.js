@@ -4,7 +4,7 @@ export const ReviewContext = React.createContext()
 
 export const ReviewProvider = (props) => {
     const [ reviews, setReviews ] = useState([])
-    const [ reviewCategories, setCategories ] = useState([])
+    
 
 
     const getReviews = () => {
@@ -17,7 +17,7 @@ export const ReviewProvider = (props) => {
             .then(setReviews)
     }
 
-    const createreview = (review) => {
+    const createReview = (review) => {
         return fetch("http://localhost:8000/gamereviews", {
             method: "POST",
             headers: {
@@ -41,8 +41,8 @@ export const ReviewProvider = (props) => {
     
 
     return (
-        <reviewContext.Provider value={{ reviews, getReviews, createReview, getReviewCategories, reviewCategories, getReviewById }} >
+        <ReviewContext.Provider value={{ reviews, getReviews, createReview, getReviewById }} >
             { props.children }
-        </reviewContext.Provider>
+        </ReviewContext.Provider>
     )
 }
