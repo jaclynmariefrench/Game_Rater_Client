@@ -57,7 +57,7 @@ export const ReviewForm = () => {
 
                     // Send POST request to your API
                     createReview(review)
-                        .then(() => history.push("/games/detail/:game_id(\d+)"))
+                        .then(() => history.push(`/games/detail/${game_id}`))
                 }}
                 >Submit</button>
         </form>

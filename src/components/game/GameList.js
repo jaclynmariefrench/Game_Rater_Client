@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { GameContext } from "./GameProvider.js";
 
 export const GameList = (props) => {
@@ -28,7 +28,7 @@ export const GameList = (props) => {
           return (
             <section key={`game--${game.id}`} className="game">
               <div className="game__name">
-                <h3>{game.title}</h3> by {game.designer}
+                <h3><Link className="game-link" to="`games/detail/:game_id(\d+)`">{game.title}</Link></h3> by {game.designer}
               </div>
               <div className="game__players">
                 {game.number_of_players} players needed

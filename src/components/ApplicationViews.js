@@ -7,6 +7,8 @@ import { GameDetail } from "./game/GameDetails"
 import { ReviewForm } from "./game/ReviewForm"
 import { ReviewProvider } from "./game/ReviewProvider"
 import { ReviewList } from "./game/ReviewList"
+import { RatingForm } from "./game/RatingForm"
+import { RatingProvider } from "./game/RatingProvider"
 
 
 export const ApplicationViews = () => {
@@ -17,19 +19,22 @@ export const ApplicationViews = () => {
         }}>
             <GameProvider>
                 <ReviewProvider>
-                <Route exact path="/games">
-                    <GameList/>
-                </Route>
-                <Route exact path="/games/new">
-                    <GameForm />
-                </Route>
-                <Route exact path="/games/detail/:game_id(\d+)">
-                    <GameDetail />
-                    <ReviewList/>
-                </Route>
-                <Route exact path="/games/:game_id(\d+)/review">
-                    <ReviewForm/>
-                </Route>
+                    <RatingProvider>
+                        <Route exact path="/games">
+                            <GameList/>
+                        </Route>
+                        <Route exact path="/games/new">
+                            <GameForm />
+                        </Route>
+                        <Route exact path="/games/detail/:game_id(\d+)">
+                            <GameDetail />
+                            <ReviewList/>
+                        </Route>
+                        <Route exact path="/games/:game_id(\d+)/review">
+                            <RatingForm/>
+                            <ReviewForm/>
+                        </Route>
+                    </RatingProvider>
                 </ReviewProvider>
             </GameProvider>
 

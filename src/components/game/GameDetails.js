@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useParams } from "react-router-dom"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { GameContext } from "./GameProvider"
 
 export const GameDetail = () => {
@@ -25,6 +25,7 @@ export const GameDetail = () => {
         <div className="game__time_to_play">Time to Play: { game.time_to_play }</div>
         <div className="game__year_released">Year Released: { game.year_released }</div>
         <div className="game__age_recommendation">Age Recommendation: { game.age_recommendation }</div>
+        <div className="game__average_rating">Game Rating: {game.average_rating} out of 10.</div>
         <button className="btn btn-2 btn-sep icon-create"
         onClick={() => {
           history.push(`/games/${game_id}/review`);
